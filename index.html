@@ -212,6 +212,7 @@
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
+      border: none;
       transition: var(--transition);
     }
 
@@ -237,6 +238,15 @@
     .hero-img {
       display: flex;
       justify-content: center;
+    }
+
+    .profile-photo {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: var(--shadow);
     }
 
     .img-placeholder {
@@ -581,9 +591,8 @@
         </div>
       </div>
       <div class="hero-img">
-        <div class="img-placeholder">
-          <i class="fa-solid fa-user-gear"></i>
-        </div>
+        <!-- Foto Profil: Pastikan nama file foto yang diunggah ke GitHub bernamakan foto-profile.jpg -->
+        <img src="foto-profile.jpg" alt="Aryananta Adi Wiratama" class="profile-photo" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fa-solid fa-user-gear\'></i></div>';">
       </div>
     </div>
   </section>
@@ -604,13 +613,13 @@
           <span class="tag-year">2026 – Sekarang</span>
           <h3>Universitas Gadjah Mada</h3>
           <p><strong>Bachelor of Applied Science in Electrical Engineering Technology</strong></p>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Yogyakarta</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Yogyakarta, Indonesia</p>
         </div>
         <div class="edu-card">
           <span class="tag-year">2023 – 2026</span>
           <h3>SMA N 1 Sewon</h3>
           <p><strong>Matematika dan Ilmu Pengetahuan Alam (MIPA)</strong></p>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Bantul, Yogyakarta</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Bantul, Indonesia</p>
         </div>
       </div>
     </div>
@@ -733,7 +742,7 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT SECTION (DENGAN FORMSPREE) -->
   <section class="section" id="contact">
     <div class="container">
       <h2 class="section-title">Hubungi Saya</h2>
@@ -776,18 +785,20 @@
           </div>
         </div>
 
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim!');">
+        <!-- FORM KONTAK YANG SUDAH DITERAPKAN FORMSPREE -->
+        <!-- PENTING: Ganti KODE_UNIK_FORMSPREE di bawah dengan kode unik dari Formspree Anda -->
+        <form class="contact-form" action="https://formspree.io/f/KODE_UNIK_FORMSPREE" method="POST">
           <div class="form-group">
             <label for="name">Nama Lengkap</label>
-            <input type="text" id="name" placeholder="Nama Anda" required />
+            <input type="text" name="name" id="name" placeholder="Nama Anda" required />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="nama@email.com" required />
+            <label for="email">Email Pengirim</label>
+            <input type="email" name="_replyto" id="email" placeholder="nama@email.com" required />
           </div>
           <div class="form-group">
             <label for="message">Pesan</label>
-            <textarea id="message" rows="4" placeholder="Tuliskan pesan Anda..." required></textarea>
+            <textarea name="message" id="message" rows="4" placeholder="Tuliskan pesan Anda..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
         </form>
